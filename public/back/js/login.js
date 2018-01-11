@@ -43,7 +43,7 @@
         e.preventDefault();
         $.ajax({
             type:"post",
-            url:"employee/employeeLogin",
+            url:"/employee/employeeLogin",
             data: form.serialize(),
             success:function (info) {
                 if(info.success){
@@ -51,7 +51,7 @@
                 }
 
                 if(info.error === 1000){
-                    form.data('bootstrapValidator').updateStatus("username","INVALIN","callback")
+                    form.data('bootstrapValidator').updateStatus("username","INVALID","callback")
                 }
                 if(info.error === 1001){
                     form.data('bootstrapValidator').updateStatus("password","INVALID",'callback');
