@@ -100,3 +100,8 @@ a:active {
     text-align: center;
     line-height: 50px;
 }
+.chart-left,
+.chart-right{
+    width: 45%;
+    height: 400px;
+}
