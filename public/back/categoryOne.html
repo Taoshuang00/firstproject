@@ -25,8 +25,8 @@
                     <span class="glyphicon glyphicon-list"></span>
                     <span> 分类管理</span>
                 </a>
-                <div class="list" style="display:none">
-                    <a href="categoryOne.html"  class="active">一级分类</a>
+                <div class="list">
+                    <a href="categoryOne.html" class="active">一级分类</a>
                     <a href="categoryTwo.html">二级分类</a>
                 </div>
             </li>
@@ -59,8 +59,8 @@
         </ol>
 
         <div class="content">
-            <div class="btn-group" >
-                <button type="button" class="btn btn-default mb-20">添加分类</button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-add mb-20">添加分类</button>
             </div>
             <table class="table table-bordered ">
                 <thead>
@@ -98,22 +98,30 @@
         </div>
     </div>
 </div>
-<!--启用模态框-->
-<div class="modal fade" tabindex="-1" id="btnModal">
+<!--添加模态框-->
+<div class="modal fade" tabindex="-1" id="addModal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                <h4 class="modal-title">温馨提示</h4>
+                <h4 class="modal-title">添加分类</h4>
             </div>
-            <div class="modal-body text-danger">
-                <span class="glyphicon glyphicon-info-sign"></span>
-                <span>你确定要执行此操作吗？</span>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary btn-isDelete" >确定</button>
-            </div>
+            <form id="form">
+                <div class="modal-body text-danger">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="categoryName" placeholder="请输入一级分类名称">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary btn-add">添加</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -126,12 +134,12 @@
 <script src="js/common.js"></script>
 <script src="js/categoryOne.js"></script>
 <!--模板-->
-<script type="text/html" id="tpl">
+<script type="text/html" id="tpl-cate">
     {{each rows $v $i }}
-     <tr>
+    <tr>
         <td>{{ (page -1)*size + $i+ 1 }}</td>
-        <td>{{$v.username}}</td>
-     </tr>
+        <td>{{$v.categoryName}}</td>
+    </tr>
     {{/each}}
 
 </script>
