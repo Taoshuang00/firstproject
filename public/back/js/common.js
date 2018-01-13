@@ -31,7 +31,9 @@
         $('.list').slideToggle();
     })
     $('.icon-main').on('click',function () {
-        $('.lt_aside').toggle('.toggle')
+        $('.lt_main').toggleClass("toggle");
+        $('.main-header').toggleClass("toggle");
+        $('.lt_aside').toggleClass('toggle')
     })
 
     $('.icon-out').on('click',function () {

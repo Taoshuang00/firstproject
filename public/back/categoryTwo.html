@@ -25,8 +25,8 @@
                     <span class="glyphicon glyphicon-list"></span>
                     <span> 分类管理</span>
                 </a>
-                <div class="list" >
-                    <a href="categoryOne.html">一级分类</a>
+                <div class="list">
+                    <a href="categoryOne.html" >一级分类</a>
                     <a href="categoryTwo.html" class="active">二级分类</a>
                 </div>
             </li>
@@ -59,12 +59,30 @@
         </ol>
 
         <div class="content">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-add mb-20">添加分类</button>
+            </div>
+            <table class="table table-bordered ">
+                <thead>
+                <tr>
+                    <td width="10%">序号</td>
+                    <td width="30%">一级分类名称</td>
+                    <td width="30%">二级分类名称</td>
+                    <td width="30%">二级分类LOGO</td>
+                </tr>
+                </thead>
+                <tbody>
 
+                </tbody>
+            </table>
+            <div class="text-tight">
+                <ul id="paginator"></ul>
+            </div>
         </div>
     </div>
 </div>
-
-<div class="modal fade" tabindex="-1" id="myModal">
+<!--退出模态框-->
+<div class="modal fade" tabindex="-1" id="outModal">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -82,12 +100,85 @@
         </div>
     </div>
 </div>
+<!--添加模态框-->
+<div class="modal fade" tabindex="-1" id="addModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title">添加分类</h4>
+            </div>
+            <form id="form">
+                <div class="modal-body text-danger">
+                    <div class="form-group">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" >
+                                请输入一级菜单
+                                <span class="caret"></span>
+
+                            </button>
+                            <input type="hidden" name="categoryId" id="categoryId"/>
+                            <ul class="dropdown-menu" >
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类名称">
+                    </div>
+                    <div class="form-group">
+                        <div class="fileUpload_box">
+                            <button type="button" class="btn btn-default ">上传图片</button>
+                            <input id="fileupload" type="file" name="pic1" data-url="/category/addSecondCategoryPic"  class="btn btn-default ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <img src="images/none.png" width="100" height="100" alt=""/>
+                        <input type="hidden" name="brandLogo" id="brandLogo"/>
+                        <input type="hidden" name="hot" value="1"/>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary btn-add">添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <script src="lib/jquery/jquery.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
-<script src="js/login.js"></script>
+<script src="js/categoryTwo.js"></script>
+<!--模板-->
+<script type="text/html" id="tpl-category">
+    {{each rows $v $i }}
+    <tr>
+        <td>{{ (page -1)*size + $i+ 1 }}</td>
+        <td>{{$v.categoryName}}</td>
+        <td>{{$v.brandName}}</td>
+        <td><img src="../../../{{$v.brandLogo}}" alt=""/></td>
+    </tr>
+    {{/each}}
+
+</script>
+<!--下拉菜单模板-->
+<script type="text/html" id="tpl-menu">
+    {{each rows v i }}
+        <li><a href="#" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+    {{/each}}
+</script>
 
 </body>
 </html>

@@ -36,6 +36,7 @@
 
     $('.btn-add ').on('click',function () {
         $('#addModal').modal('show');
+
     })
 
     $('#form').bootstrapValidator({
@@ -67,10 +68,11 @@
                     page= 1;
                     render();
                 }
+                $("#form").data('bootstrapValidator').resetForm(true)
             }
         })
         $('#addModal').modal('hide');
     })
 
-    $("#form").data('bootstrapValidator').resetForm()
+
 })();

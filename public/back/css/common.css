@@ -31,9 +31,13 @@ a:active {
     background-color: #222d32;
     float: left;
     transition: all 1s ;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
 }
 .lt_aside.toggle {
-    width: 0;
+    left: -180px;
 }
 .lt_aside .title {
     height: 50px;
@@ -83,11 +87,11 @@ a:active {
 }
 .lt_main {
     height: 100%;
-    width: 100%;
-    padding-left: 180px;
+    margin-left: 180px;
+    transition: all 1s;
 }
 .lt_main.toggle {
-    padding-left: 0;
+    margin-left: 0;
 
 }
 .lt_main .main-header {
@@ -95,6 +99,15 @@ a:active {
     width: 100%;
     background-color: #3c8dbc;
     margin-bottom: 20px;
+    position: fixed;
+    z-index: 888;
+    top: 0;
+    left: 0;
+    padding-left: 180px;
+    transition: all 1s;
+}
+.lt_main  .main-header.toggle {
+    padding-left: 0;
 }
 .lt_main .main-header a {
     width: 50px;
@@ -108,7 +121,9 @@ a:active {
     width: 45%;
     height: 400px;
 }
-
+.lt_main  {
+    margin-top: 70px;
+}
 .lt_main .content table td {
     text-align: center;
     vertical-align: middle;
@@ -122,4 +137,17 @@ a:active {
     position: absolute;
     top: 0;
     right: 0;
+}
+.fileUpload_box {
+    width: 82px;
+    height: 34px;
+    position: relative;
+}
+.fileUpload_box input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
 }
