@@ -35,7 +35,7 @@
     })
 
     $('.icon-out').on('click',function () {
-        $('#myModal').modal('show')
+        $('#outModal').modal('show')
     })
 
     $('.btn-loginOut').on('click',function () {

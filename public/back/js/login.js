@@ -1,7 +1,7 @@
 ;(function () {
     var form = $('form');
 
-   form.bootstrapValidator({
+    form.bootstrapValidator({
        feedbackIcons: {
            valid: 'glyphicon glyphicon-ok',
            invalid: 'glyphicon glyphicon-remove',
@@ -37,7 +37,7 @@
               }
             }
         }
-    })
+    });
 
     form.on('success.form.bv',function (e) {
         e.preventDefault();
@@ -58,6 +58,10 @@
                 }
             }
         })
+    });
+
+    $("[type ='reset']").on('click',function () {
+        form.data('bootstrapValidator').resetForm(true);
     })
 
 })();
