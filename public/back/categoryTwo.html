@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <img src="images/none.png" width="100" height="100" alt=""/>
+                        <img src="images/none.png" class="img-show" width="100" height="100" alt=""/>
                         <input type="hidden" name="brandLogo" id="brandLogo"/>
                         <input type="hidden" name="hot" value="1"/>
                     </div>
@@ -168,7 +168,7 @@
         <td>{{ (page -1)*size + $i+ 1 }}</td>
         <td>{{$v.categoryName}}</td>
         <td>{{$v.brandName}}</td>
-        <td><img src="../../../{{$v.brandLogo}}" alt=""/></td>
+        <td><img src="../../../{{$v.brandLogo}}" height="50" alt=""/></td>
     </tr>
     {{/each}}
 

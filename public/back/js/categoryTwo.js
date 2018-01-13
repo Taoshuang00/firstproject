@@ -4,7 +4,7 @@
 ;(function () {
     var page = 1;
     var pageSize = 5;
-
+    var form =$('form');
     render();
     function render() {
         $.ajax({
@@ -57,19 +57,23 @@
         $('.dropdown button').text($(this).text());
         var id= $(this).data('id');
         $('#categoryId').val(id);
+        form.data('bootstrapValidator').updateStatus('categoryId','VALID')
+    })
+    $('#fileupload').fileupload({
+        dataType:'json',
 
-        $('#fileupload').fileupload({
-            dataType:'json',
-            done:function (e,data) {
-                console.log(data);
-                var result = data.result.picAddr;
-                $('#brandLogo').val(result);
-            }
+        done:function (e,data) {
+            console.log(data);
+            var result = data.result.picAddr;
+            console.log(result);
+            $('.img-show').attr('src', '../../../' +result);
+            $('#brandLogo').val(result);
+            form.data('bootstrapValidator').updateStatus('brandLogo','VALID')
+        }
 
-        })
     })
 
-    var form =$('form')
+
 
     form.bootstrapValidator({
         excluded:[],
@@ -116,7 +120,9 @@
                 if(info.success){
                     page = 1;
                     render();
-                    from.data('bootstrapValidator').resetForm(true);
+                    $('#addModal').modal('hide');
+                    $('.img-show').attr('src','images/none.png')
+                    form.data('bootstrapValidator').resetForm(true)
                 }
             }
         })
