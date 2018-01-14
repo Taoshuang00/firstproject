@@ -45,6 +45,7 @@
                 pageSize:100
             },
             success:function (info) {
+                console.log(info);
                 $(".dropdown-menu").html(template("tpl-menu",info))
             }
         })
@@ -63,16 +64,14 @@
         dataType:'json',
 
         done:function (e,data) {
-            console.log(data);
+            //console.log(data);
             var result = data.result.picAddr;
-            console.log(result);
+            //console.log(result);
             $('.img-show').attr('src', '../../../' +result);
             $('#brandLogo').val(result);
             form.data('bootstrapValidator').updateStatus('brandLogo','VALID')
         }
-
     })
-
 
 
     form.bootstrapValidator({
