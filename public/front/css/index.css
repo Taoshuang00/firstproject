@@ -1,0 +1,35 @@
+.lt_content .lt_nav  {
+    padding: 10px;
+
+}
+.lt_content .lt_nav li  {
+    float: left;
+    width: 33.3%;
+}
+.lt_content .lt_product {
+    padding: 10px;
+}
+.lt_content .lt_product li{
+    width: 49%;
+    float: left;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+.lt_content .lt_product li:nth-child(odd) {
+    margin-right: 8px;
+}
+.lt_content .lt_product li span:first-child {
+    color: red;
+}
+.lt_content .lt_product li span:last-child {
+    text-decoration: line-through;
+    color: #ccc;
+}
+.lt_content .lt_product li button {
+    background-color: #007aff;
+    border: 1px solid #007aff;
+    color: #fff;
+}
