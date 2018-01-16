@@ -94,7 +94,7 @@
             if(imgArr.length >= 3){
                 return ;
             }
-            $('.img-box').append("<img height ='100' src="+result.picAddr +"> <?img>")
+            $('.img-box').append("<img height ='100' src="+result.picAddr +">")
             imgArr.push(result);
 
             if(imgArr.length == 3){
@@ -188,6 +188,7 @@
 
     form.on('success.form.bv',function (e) {
         var param = form.serialize();
+        console.log(param);
         param += "&picName1="+imgArr[0].picName +"&picAddr1="+imgArr[0].picAddr;
         param += "&picName1="+imgArr[1].picName +"&picAddr1="+imgArr[1].picAddr;
         param += "&picName1="+imgArr[2].picName +"&picAddr1="+imgArr[2].picAddr;

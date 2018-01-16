@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.lt_title {
+    width: 100%;
+    background-color: #eee;
+    height: 30px;
+    color: #666;
+    line-height: 30px;
+}
+.lt_title a {
+    float: left;
+    width: 25%;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    height: 100%;
+
+}
+.lt_title a.now {
+    color: goldenrod;
+}
